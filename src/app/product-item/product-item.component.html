@@ -1,0 +1,57 @@
+<div>
+  <div *ngIf="displayMode=='list'" class="product-list-item flex flex-wrap">
+    <div class="product-list-item-no flex center">{{product.productId}}</div>
+    <div class="product-list-item-image flex center">
+      <img [src]="product.imagePath">
+    </div>
+    <div class="product-list-item-info flex-wrap">
+      <div class="flex flex-col place-content-around">
+        <div class="flex flex-wrap">
+          <div class="title">{{product.title}}</div>
+          <div class="flex items-center">
+            <img src="assets/svgs/check.svg">
+            <div class="info-group1-item day-ago flex center">2 Days ago</div>
+            <div class="info-group1-item dropship flex center">Dropship</div>
+            <div class="info-group1-item cloud flex center"><img src="assets/svgs/cloud.svg"></div>
+            <div class="info-group1-item eye flex center"><img src="assets/svgs/eye-disable.svg"></div>
+            <div class="info-group1-item setting flex center"><img src="assets/svgs/setting.svg"></div>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="info-group2-item flex">
+            <i class="icon-pin" style="padding-top: 2px; padding-right: 5px"></i>{{product.tags}}
+          </div>
+          <div class="info-group2-item flex"><i class="icon-star" style="padding-right: 5px"></i>{{product.rating}}</div>
+          <div class="info-group2-item flex"><i class="icon-shield" style="padding-right: 5px"></i>{{product.percentage}}%</div>
+          <div class="info-group2-item flex"><i class="icon-epack" style="padding-right: 5px"></i>ePack</div>
+        </div>
+      </div>
+      <div class="flex items-center place-content-around" style="flex-grow: 1;">
+        <div class="price">${{product.price}}</div>
+        <div class="flex items-center">
+          <span class="info-group3-item eye"><i class="icon-eye"></i></span>
+          <span class="info-group3-item"><i class="icon-heart"></i></span>
+          <span class="info-group3-item"><i class="icon-add"></i></span>                  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="displayMode=='grid'" class="product-grid-item">
+    <div class="product-grid-item-photo flex center">
+      <img [src]="product.imagePath" tag="loading">
+    </div>
+    <div class="product-grid-item-title flex justify-between items-center">
+      <div class="title">{{product.title}}</div>
+      <div class="price">${{product.price}}</div>
+    </div>
+    <div class="product-grid-item-icons flex justify-between items-center">
+      <div class="flex"><i class="icon-trophy" style="padding-right: 5px"></i>220</div>
+      <div class="flex">
+        <i class="icon-pin" style="padding-top: 1px; padding-right: 5px"></i>{{product.tags}}
+      </div>
+      <div class="flex"><i class="icon-star" style="padding-right: 5px"></i>{{product.rating}}</div>
+      <div class="flex"><i class="icon-shield" style="padding-right: 5px"></i>{{product.percentage}}%</div>
+      <div class="flex"><i class="icon-epack" style="padding-right: 5px"></i>ePack</div>
+    </div>        
+  </div>
+</div>

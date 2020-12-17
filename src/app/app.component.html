@@ -1,1 +1,14 @@
-App works
+<div class="flex content-center min-h-screen">
+  <div class="container min-h-full">
+    <div *ngIf="isLoading$ | async; else productList" class="w-100 h-100 flex center">Loading</div>
+    <ng-template #productList>
+      <div class="flex justify-end" style="margin:10px; height: 80px">
+        <button style="margin-right: 10px; height: 30px" (click)="displayMode='list'">List Mode</button>
+        <button style="margin-right: 10px; height: 30px" (click)="displayMode='grid'">Grid Mode</button>
+      </div>
+      <div [ngClass]="{'product-list': displayMode=='list','product-grid': displayMode=='grid'}">
+        <app-product-item *ngFor="let product of products$ | async" [product]="product" [displayMode]="displayMode"></app-product-item>
+      </div>
+    </ng-template>
+  </div>
+</div>
